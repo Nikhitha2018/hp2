@@ -28,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'l=oc1ljo5a6j7h%j9s+^fvk)l94-2uyl8^ioj(#-(+=@n9%c-2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','phishing-app-classification123.herokuapp.com']
 
@@ -140,7 +140,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-django_heroku.settings(locals())
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+django_heroku.settings(config=locals(),staticfiles=False,logging = False)
 
 CORS_ORIGIN_ALLOW_ALL = True
