@@ -107,7 +107,7 @@ def result(request):
         text=request.GET['url']
         if not text.startswith('http'):
             return render(request,"404.html")
-        if text.startswith('https://malicious-url-detectorv5.herokuapp.com/')  :
+        if text.startswith('https://phishclassify431.herokuapp.com/')  :
             return render(request,'result.html',{'result':'Real-time analysis successfull','f2':'Legtimate','mal': True,'text':text,'name':"The Legions",
                         'org':"The Legions",
                         'add':"New Delhi",
@@ -466,7 +466,7 @@ def api(request):
         text=request.GET['query']
         import datetime
 
-        if text.startswith('https://malicious-url-detectorv5.herokuapp.com/'): 
+        if text.startswith('https://phishclassify431.herokuapp.com/'): 
             import datetime
             mydict = {
                 "query" : text,
