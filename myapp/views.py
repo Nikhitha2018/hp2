@@ -8,6 +8,7 @@ from django.template import Context
 from django.shortcuts import render,redirect, get_object_or_404,reverse
 from django.http import HttpResponse, JsonResponse
 from django.db.models import Q
+from django.template.response import TemplateResponse
 from .models import *
 from .forms import BlackForm
 def addcourse(request):
@@ -440,8 +441,7 @@ def result(request):
                         country,emails,
                         str(dom),rank,str(registrar))
                     res.write(s)      
-            
-                return render(request,'result.html',{'result':'Real-time analysis successfull','f2':te,'mal': mal,'text':text,'name':name,
+                some_variable_name=TemplateResponse(request,'result.html',{'result':'Real-time analysis successfull','f2':te,'mal': mal,'text':text,'name':name,
                         'org':org,
                         'add':add,
                         'city':city,
@@ -449,11 +449,14 @@ def result(request):
                         'ziip':ziip,
                         'country':country,'emails':emails,
                         'dom':dom,'rank':rank,'registrar':registrar,"tags":tags,"var13":var13,"varab":varab,"var11":var11,"var10":var10,"var5":var5,"var4":var4,"var3":var3})
+		return some_variable_name
 
 
 
         else:
-            return render(request,'404.html')  
+            some_variable_name=TemplateResponse(request,'404.html',{})
+	    return some_variable_name
+
         """except:
         return render(request,'errorpage.html')  """        
 
